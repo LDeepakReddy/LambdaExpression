@@ -88,7 +88,19 @@ public class StreamApi {
         System.out.println(list.stream().noneMatch(n -> n % 2 == 0));
         System.out.println(list.stream().anyMatch(n -> n % 2 == 0));
 
+//Sorting Ascending order
+        System.out.println("Ascending order");
+        List<Integer> sortedList = list.stream()
+                .sorted()
+                .collect(Collectors.toList());
+        System.out.println(sortedList);
 
+//Descending order
+        System.out.println("Descending order");
+        List<Integer> sortedList1 = list.stream()
+                .sorted((n1, n2) -> -n1 + n2)
+                .collect(Collectors.toList());
+        System.out.println(sortedList1);
 
 
     }
