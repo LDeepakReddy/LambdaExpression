@@ -2,6 +2,7 @@ package com.blz.streamapi;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -27,6 +28,20 @@ public class StreamApi {
                 .map(n -> n.doubleValue())
                 .collect(Collectors.toList());
         System.out.println(doubleList1);
+// Filter the even numbers
+        Predicate<Integer> isEvenFunction = n -> n % 2 == 0;
+        List<Integer> evenList = list.stream()
+                .filter(n -> n % 2 == 0)
+                .collect(Collectors.toList());
+
+        System.out.println(evenList);
+
+        List<Double> evenAndDoubleList = list.stream()
+                .map(n -> n.doubleValue())
+                .filter(n -> n % 2 == 0)
+                .collect(Collectors.toList());
+
+        System.out.println(evenAndDoubleList);
 
 
     }
