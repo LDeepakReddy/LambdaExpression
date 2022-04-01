@@ -1,6 +1,7 @@
 package com.blz.streamapi;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -17,6 +18,8 @@ public class StreamApi {
         list.add(68);
         list.add(1);
         list.add(5);
+        list.add(155);
+
         // creating stream  and Iterate the Each item to show each element of stream
         list.stream().forEach(value -> System.out.println(value));
 
@@ -44,7 +47,7 @@ public class StreamApi {
                 .collect(Collectors.toList());
 
         System.out.println(evenAndDoubleList);
-
+//show the first even number
         List<Integer> a=new ArrayList<Integer>();
 
         Integer firstValue = list.stream()
@@ -52,7 +55,17 @@ public class StreamApi {
                 .peek(n -> System.out.println(n))
                 .findFirst()
                 .orElse(3);
-        System.out.println(firstValue);
+        System.out.println("First even Value is "+firstValue);
+//Find Min and Max number
+        Integer value = list.stream()
+                .min(Comparator.comparing(n -> n.intValue()))
+                .orElse(null);
+        System.out.println("Minimum  number is "+value);
+
+        Integer value1 = list.stream()
+                .max((n1, n2) -> n1 - n2)
+                .orElse(null);
+        System.out.println("Maximum  Number is "+value1);
 
 
     }
