@@ -1,6 +1,8 @@
 package com.blz.streamapi;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamApi {
@@ -20,6 +22,11 @@ public class StreamApi {
         list.stream()
                 .map(value -> value.doubleValue())
                 .forEach(value -> System.out.println(value));
+        //new list for double values
+        List<Double> doubleList1 = list.stream()
+                .map(n -> n.doubleValue())
+                .collect(Collectors.toList());
+        System.out.println(doubleList1);
 
 
     }
