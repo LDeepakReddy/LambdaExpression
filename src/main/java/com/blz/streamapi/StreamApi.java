@@ -10,6 +10,8 @@ public class StreamApi {
     public static void main(String[] args) {
 
         ArrayList<Integer> list = new ArrayList<>();
+        list.add(44);
+        list.add(22);
         list.add(9);
         list.add(12);
         list.add(68);
@@ -42,6 +44,15 @@ public class StreamApi {
                 .collect(Collectors.toList());
 
         System.out.println(evenAndDoubleList);
+
+        List<Integer> a=new ArrayList<Integer>();
+
+        Integer firstValue = list.stream()
+                .filter(n -> n % 2 == 0)
+                .peek(n -> System.out.println(n))
+                .findFirst()
+                .orElse(3);
+        System.out.println(firstValue);
 
 
     }
