@@ -79,7 +79,16 @@ public class StreamApi {
         System.out.println("Sum Of total " + total);
         Long length = list.stream().count();
         System.out.println("Total Elements in list " + length);
-        System.out.println("Average  : "+total / length);
+        System.out.println("Average  : " + total / length);
+
+        //Find atleast one Even
+        Predicate<Integer> isEven = n -> n % 2 == 0;
+
+        System.out.println(list.stream().allMatch(n -> n % 2 == 0));
+        System.out.println(list.stream().noneMatch(n -> n % 2 == 0));
+        System.out.println(list.stream().anyMatch(n -> n % 2 == 0));
+
+
 
 
     }
