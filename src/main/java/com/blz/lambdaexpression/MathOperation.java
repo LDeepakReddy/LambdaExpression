@@ -8,10 +8,10 @@ public class MathOperation {
         IMathOperation multiplication = (a, b) -> a * b;
         IMathOperation division = (a, b) -> a / b;
 
-        System.out.println(addition.calculate(7, 7));
-        System.out.println(subtraction.calculate(5, 7));
-        System.out.println(multiplication.calculate(7, 7));
-        System.out.println(division.calculate(49, 8));
+        IMathOperation.showResult(7, 7, "Addition", addition);
+        IMathOperation.showResult(3, 5, "Subtraction", subtraction);
+        IMathOperation.showResult(7, 7, "Multiplication", multiplication);
+        IMathOperation.showResult(48, 8, "Division", division);
 
     }
 }
