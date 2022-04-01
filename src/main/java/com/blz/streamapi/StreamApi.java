@@ -48,24 +48,38 @@ public class StreamApi {
 
         System.out.println(evenAndDoubleList);
 //show the first even number
-        List<Integer> a=new ArrayList<Integer>();
+        List<Integer> a = new ArrayList<Integer>();
 
         Integer firstValue = list.stream()
                 .filter(n -> n % 2 == 0)
                 .peek(n -> System.out.println(n))
                 .findFirst()
                 .orElse(3);
-        System.out.println("First even Value is "+firstValue);
+        System.out.println("First even Value is " + firstValue);
 //Find Min and Max number
         Integer value = list.stream()
                 .min(Comparator.comparing(n -> n.intValue()))
                 .orElse(null);
-        System.out.println("Minimum  number is "+value);
+        System.out.println("Minimum  number is " + value);
 
         Integer value1 = list.stream()
                 .max((n1, n2) -> n1 - n2)
                 .orElse(null);
-        System.out.println("Maximum  Number is "+value1);
+        System.out.println("Maximum  Number is " + value1);
+
+        //Sum And average
+        Integer sum = 0;
+        for (Integer num : list) {
+            sum = sum + num;
+        }
+
+        list.stream().reduce(0, Integer::sum);
+
+        Integer total = list.stream().reduce(0, (v1, v2) -> v1 + v2);
+        System.out.println("Sum Of total " + total);
+        Long length = list.stream().count();
+        System.out.println("Total Elements in list " + length);
+        System.out.println("Average  : "+total / length);
 
 
     }
